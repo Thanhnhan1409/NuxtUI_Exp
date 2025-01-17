@@ -123,58 +123,54 @@ function onFocusTextArea() {
 </script>
 
 <template>
-  <UContainer :ui="{base: 'relative flex h-full w-full overflow-hidden transition-colors z-0 overflow-hidden'}">
-    <ChatsCustomHeader />
-    <UDashboardPanel :width="260">
-      <UDashboardSidebar>
-        <template #header>
-          <div class="flex items-center justify-between">
-            <UIcon name="i-heroicons-light-bulb" class="w-5 h-5" />
-            <div class="flex gap-4">
-              <UIcon name="i-heroicons-light-bulb" class="w-5 h-5" />
-              <UColorModeButton />
+  <UContainer>
+    <div class="relative whitespace-pre-line break-words text-3xl my-md md:my-lg">#F3F3EE</div>
+    <div class="mb-lg">
+      <div class="flex gap-2 items-center">
+        <UIcon name="i-heroicons-inbox" />
+        <span class="text-lg font-medium">Sources</span>
+      </div>
+      <UPopover mode="hover" :ui="{base: 'w-fit', overlay: {
+          base: 'bg-red-500',}}">
+        <UCard :ui="{ background: ' bg-[#F3F3EE]',
+          base: 'items gap-sm cursor-pointer relative flex h-full max-w-full select-none flex-col justify-between px-sm pb-sm pt-sm',
+          padding: 'p-1',
+          body: {
+            padding: 'sm:p-2',
+            base: 'flex flex-col gap-2',
+          }}">
+          <div class="text-left line-clamp-2 default font-sans text-xs font-medium line-clamp-3">
+            Chinese Social Media App RedNote Gains US Users Ahead of TikTok Ban
+          </div>
+          <div class="flex items-center gap-2 leading-4">
+            <UIcon name="i-heroicons-inbox" />  
+            <span>pymnts</span>
+          </div>
+        </UCard>
+
+        <template #panel>
+          <div class="py-2 px-4 max-w-[300px] flex flex-col gap-2">
+            <div class="flex items-center gap-2 leading-4">
+              <UIcon name="i-heroicons-inbox" />  
+              <span>pymnts</span>
+            </div>
+            <div class="max-h-[40px] overflow-hidden text-sm font-medium">
+              Chinese Social Media App RedNote Gains US Users Ahead of TikTok Ban
+            </div>
+            <div class="max-h-[80px] overflow-hidden text-sm">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae labore optio accusantium totam sint ducimus illum aspernatur in quas, sunt sapiente, iste fuga laborum porro provident tenetur minus voluptatibus at?
             </div>
           </div>
         </template>
-        <div>
-          <div v-for="historyChat in historyChats" :key="historyChat.id">
-            <div>{{ historyChat.date }}</div>
-            <UDashboardSidebarLinks :links="historyChat.historyItems" :ui="{ 
-              active: 'text-gray-900  bg-yellow-900 dark:text-white before:bg-gray-100 dark:before:bg-gray-800',
-              inactive: ' hover:bg-yellow-900 \text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white  hover:before:bg-red-900 dark:hover:before:bg-gray-800/50',}" />
-          </div>
-        </div>
-        <!-- <UDashboardSidebarLinks :links="links" /> -->
-      </UDashboardSidebar>
-    </UDashboardPanel>
-<!-- flex flex-col m-auto text-base md:px-4 w-full md:px-5 lg:px-4 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] overflow-hidden -->
-    <div class="flex h-full flex-1 flex-col focus-visible:outline-0">
-      <!-- <div class=" mx-auto text-base"> -->
-        <div class="flex-1 w-full m-auto text-bases md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem]">
-          <template v-for="conversation in chatConversation" :key="conversation.id">
-            <ChatsChatBubbleItem :text="conversation.content" :is-l-t-r="conversation.isLTR" />
-          </template>
-        </div>
-      <!-- </div> -->
-      <div @click="onFocusTextArea" class="flex w-full cursor-text flex-col rounded-3xl px-2.5 py-1 transition-colors contain-inline-size bg-[#f4f4f4] dark:bg-[#2f2f2f] mx-auto text-base md:gap-5 lg:gap-6 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem]">
-        <UTextarea
-          ref="textAreaRef"
-          :rows="1"
-          :maxrows="7"
-          :minrows="1"
-          autoresize
-          autofocus
-          variant="none"
-          class="min-h-[40px]"
-        />
-        <div class="flex h-[44px] items-center justify-between">
-          <UButton class="h-8 min-w-8 items-center justify-center rounded-lg p-1 text-xs font-semibold hover:bg-black/10 focus-visible:outline-black dark:focus-visible:outline-white" variant="ghost" >
-            <UIcon name="i-heroicons-link" class="w-6 h-6 text-black dark:text-white" />
-          </UButton>
-          <UButton class="h-8 min-w-8 items-center justify-center rounded-lg p-1 text-xs font-semibold hover:bg-black/10 focus-visible:outline-black dark:focus-visible:outline-white" variant="ghost" >
-            <UIcon name="i-heroicons-paper-airplane" class="w-6 h-6 text-black dark:text-white" />
-          </UButton>
-        </div>
+      </UPopover>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="flex gap-2 items-center">
+        <UIcon name="i-heroicons-inbox" />
+        <span class="text-lg font-medium">Answer</span>
+      </div>
+      <div>
+        Adapting your responses to fit the flow of an interview conversation involves several key strategies that enhance engagement and ensure a natural dialogue. Here are some effective techniques:
       </div>
     </div>
   </UContainer>
